@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - Tourly</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('./assets/images/background.jpeg');
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Book Now</h2>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tourType">Tour Type</label>
+                <select class="form-control" id="tourType" name="tourType">
+          <option value="sightseeing">Sightseeing Tour</option>
+          <option value="adventure">Adventure Tour</option>
+          <option value="cultural">Cultural Tour</option>
+        </select>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" onclick="submitBooking()">Book Now</button>
+        </form>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function submitBooking() {
+            var fullName = $('#fullName').val();
+            var email = $('#email').val();
+            var tourType = $('#tourType').val();
+
+            if (fullName && email && tourType) {
+                console.log('Booking Details:');
+                console.log('Full Name: ' + fullName);
+                console.log('Email: ' + email);
+                console.log('Tour Type: ' + tourType);
+                alert('Booking successful!');
+            } else {
+                alert('Please fill in all the fields with valid email.');
+            }
+        }
+    </script>
+</body>
+
+</html>

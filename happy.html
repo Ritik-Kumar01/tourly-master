@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Webpage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        /* CSS styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: calc(100% - 16px);
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to jQuery Webpage</h1>
+    </header>
+
+    <div class="container">
+        <p>This is a simple webpage demonstrating the usage of jQuery selectors and elements.</p>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button id="changeTextBtn">Change Text</button>
+        <div id="textContainer">
+            <p>This is the initial text.</p>
+        </div>
+        <div class="result"></div>
+    </div>
+
+    <script>
+        // jQuery script
+        $(document).ready(function() {
+            // Click event handler for the button
+            $('#changeTextBtn').click(function() {
+                // Get the value from input
+                var name = $('#nameInput').val();
+                // Validation: Check if name is empty
+                if (name.trim() === '') {
+                    alert('Please enter your name.');
+                    return;
+                }
+                // Change the text inside the text container
+                $('#textContainer p').text('Text changed using jQuery!');
+                // Show result div
+                $('.result').show();
+                // Append the name to the result div
+                $('.result').html('Hello, <strong>' + name + '</strong>! <br> Thanks for visiting.');
+                // Clear input field
+                $('#nameInput').val('');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
